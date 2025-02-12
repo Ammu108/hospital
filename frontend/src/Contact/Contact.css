@@ -1,0 +1,161 @@
+.contact-page-container{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+.contact-box{
+    display: flex;
+    gap: 50px;
+}
+
+.contact-box-img{
+    width: 500px;
+    height: 320px;
+    overflow: hidden;
+}
+
+.contact-box-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all ease 0.5s;
+}
+
+.contact-box-img:hover img{
+    scale: 1.1;
+}
+
+.addres{
+    padding-top: 10px;
+}
+
+.contact-content-div{
+    width: 50%;
+}
+
+.phone-numbers-div{
+    display: block;
+}
+
+.infos{
+    margin-top: 10px
+}
+
+.info-title{
+    padding: 10px 0;
+}
+
+.email-div{
+    display: block;
+}
+
+/* .available-time img{
+    height: 70px;
+    width: 70px;
+    margin-top: 20px;
+} */
+
+/* @media (max-width: 1279px){
+    .contact-page-container{
+        width: 90%;
+    }
+    .contact-box-img{
+        width: 500px;
+        height: 450px;
+    }
+} */
+
+.adjuistable-email-div{
+    display: none;
+}
+
+.adjustable-phone-div{
+    display: none;
+}
+
+@media (max-width: 1700px){
+    .contact-page-container{
+        margin-top: 150px;
+        margin-bottom: 250px;
+    }
+}
+
+@media (max-width: 930px){
+    .contact-page-container{
+        width: 90%;
+        font-size: 17px;
+        margin-top: 100px;
+        margin-bottom: 150px;
+    }
+    .contact-box{
+        gap: 30px;
+    }
+    .contact-box-img{
+        width: 400px;
+        height: 350px;
+    }
+    /* .available-time img{
+        height: 70px;
+        width: 70px;
+        margin-top: 20px;
+    } */
+}
+
+@media (max-width: 780px){
+    .contact-page-container{
+        font-size: 16px;
+    }
+    .contact-box-img{
+        width: 350px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 680px){
+    .contact-box-img{
+        width: 300px;
+        height: 250px;
+    }
+    .email-div{
+        display: none;
+    }
+    .adjuistable-email-div{
+        margin-top: 20px;
+        display: block;
+    }
+}
+
+@media (max-width: 580px){
+    .contact-page-container{
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+    .contact-page-container h5{
+        font-size: 17px;
+    }
+    .phone-numbers-div{
+        display: none;
+    }
+    .adjustable-phone-div{
+        display: block;
+    }
+}
+
+@media (max-width: 470px){
+    .contact-page-container{
+        font-size: 15px;
+    }
+    .contact-box-img{
+        width: 100%;
+        height: 250px;
+    }
+    .contact-content-div{
+        width: 100%;
+        margin-top: 30px;
+    }
+    .contact-box{
+        display: block;
+    }
+}

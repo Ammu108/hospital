@@ -1,0 +1,150 @@
+.heroSection-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 15px;
+    background: url('/header.jpg') no-repeat center center;
+    background-size: cover;
+    border-radius: 15px;
+}
+
+.header-message{
+    width: 65%;
+    margin: 60px;
+}
+
+.header-message-para{
+    font-size: 18px;
+}
+
+.header-title{
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.herader-btn-div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #D9EAFD;
+    width: 26%;
+    justify-content: center;
+    height: 55px;
+    border-radius: 60px;
+    transition: transform 0.3s ease;
+    margin-top: 23px;
+    background-color: #D9EAFD;
+}
+
+.herader-btn-div:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.header-btn{
+    border: none;
+    background-color: transparent;
+}
+
+@media (max-width: 1300px) {
+    .header-title {
+        font-size: 3.5rem;
+    }
+    .herader-btn-div{
+        width: 35%;
+    }
+}
+
+@media ( max-width: 1010px){
+    .header-message{
+        width: 80%;
+    }
+    .header-title{
+        font-size: 3rem;
+    }
+    .herader-btn-div{
+        width: 35%;
+    }
+}
+
+@media ( max-width: 850px){
+    .header-message{
+        width: 85%;
+        margin: 40px 25px;
+    }
+    .header-title{
+        font-size: 2.5rem;
+    }
+    .header-message-para{
+        font-size: 12px;
+    }
+}
+
+@media ( max-width: 700px){
+    .header-message{
+        margin: 40px 25px;
+    }
+    .header-title{
+        font-size: 2.2rem;
+    }
+    .header-message-para{
+        font-size: 12px;
+        line-height: 1.3;
+    }
+    .herader-btn-div{
+        width: 32%;
+        height: 40px;
+        font-size: 12px;
+        line-height: 1.3;
+    }
+}
+
+@media ( max-width: 600px){
+    .header-title{
+        font-size: 2.1rem;
+    }
+    .header-message-para{
+        font-size: 11px;
+        line-height: 1.3;
+    }
+    .herader-btn-div{
+        width: 32%;
+        height: 40px;
+        font-size: 12px;
+        line-height: 1.3;
+    }
+}
+
+@media ( max-width: 505px){
+    .header-title{
+        font-size: 1.9rem;
+    }
+    .herader-btn-div{
+        width: 45%;
+    }
+}
+
+@media ( max-width: 410px){
+    .heroSection-container{
+        max-height: 35vh;
+    }
+    .header-title{
+        font-size: 1.8rem;
+    }
+    .herader-btn-div{
+        width: 52%;
+
+    }
+}
+
+@media ( max-width: 370px){
+    .header-title{
+        font-size: 1.6rem;
+    }
+    .herader-btn-div{
+        width: 60%;
+        height: 40px;
+    }
+}

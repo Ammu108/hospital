@@ -1,0 +1,95 @@
+.specialistMenu-container{
+    margin-top: 80px;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.specialistMenu-message{
+    text-align: center;
+    font-size: 18px;
+}
+
+.specialistMenu-message h1{
+    font-weight: 700;
+}
+
+.specialistMenu-images-box{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.specialistMenu-images-box::-webkit-scrollbar {
+    display: none;
+}
+
+.specialistMenu-images{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    padding-bottom: 10px;
+}
+
+.specialistMenu-images:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.specialistMenu-image{
+    height: 20vw; /* This makes the height relative to the viewport width */
+    width: 20vw;  /* This keeps the width proportional to the height */
+    max-height: 120px;  /* Limits the maximum height */
+    max-width: 120px;   /* Limits the maximum width */
+    border-radius: 50%;
+    overflow: hidden;
+    padding-bottom: 5px;
+}
+
+.specialistMenu-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%; /* Ensures the image respects the circular shape */
+}
+
+@media ( max-width: 953px){
+    .specialistMenu-images-box{
+        justify-content: flex-start;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+@media ( max-width: 460px){
+    .specialistMenu-message{
+        font-size: 15px;
+    }
+    .specialistMenu-image{
+        height: 100px; 
+        width: 100px; 
+        max-height: 120px;
+        max-width: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .specialistMenu-images p{
+        font-size: 15px;
+    }
+}

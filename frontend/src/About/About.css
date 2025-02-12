@@ -1,0 +1,157 @@
+.aabout-page-container{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+.about-page-box{
+    display: flex;
+    gap: 50px;
+    align-items: center
+}
+
+.about-page-img{
+    width: 400px;
+    height: 330px;
+    overflow: hidden;
+}
+
+.about-page-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all ease 0.5s;
+}
+
+.about-page-img:hover img{
+    scale: 1.1;
+}
+
+.about-page-content{
+    width: 73%;
+}
+
+.about-page-content p{
+    width: 80%;
+}
+
+.mission-div{
+    margin-top: 20px;
+}
+
+.why-choose-box{
+    margin-top: 40px;
+}
+
+.why-choose-us-div{
+    height: 300px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.choose-box{
+    width: 400px;
+    /* background-color: rgb(255, 241, 223); */
+    background-color: #e6f1ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.about-contact-box{
+    margin-top: 40px;
+}
+
+.about-contact-box img{
+    height: 16px;
+    width: 16px;
+    margin-left: 5px;
+    transition: transform ease 0.3s;
+}
+
+.about-contact-box img:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.mission-adjustable-div{
+    display: none;
+}
+
+@media ( max-width: 930px ){
+    .aabout-page-container{
+        font-size: 17px;
+    }
+    .about-page-box{
+        gap: 30px;
+    }
+    .about-page-img{
+        width: 450px;
+        height: 390px;
+    }
+}
+
+@media ( max-width: 830px ){
+    .about-page-content p{
+        width: 100%;
+    }
+}
+
+@media ( max-width: 660px ){
+    .about-page-content p{
+        width: 100%;
+    }
+    .about-page-img{
+        width: 400px;
+        height: 300px;
+    }
+    .mission-div{
+        display: none;
+    }
+    .mission-adjustable-div{
+        display: block;
+        margin-top: 40px;
+    }
+    .why-choose-us-div{
+        font-size: 15px;
+    }
+}
+
+@media ( max-width: 500px ){
+    .aabout-page-container{
+        font-size: 15px;
+    }
+    .aabout-page-container h5{
+        font-size: 17px;
+    }
+    .about-page-img{
+        width: 350px;
+        height: 250px;
+    }
+    .why-choose-us-div{
+        height: 200px;
+        font-size: 12px;
+    }
+    .choose-box{
+        padding: 15px;
+    }
+}
+
+@media ( max-width: 425px){
+    .about-page-box{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-page-img{
+        width: 100%;
+        height: 200px;
+    }
+    .about-page-content{
+        width: 100%;
+    }
+}

@@ -1,0 +1,160 @@
+.allDoctors-containner{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.inside-alldoctors-cotaier{
+    margin: 40px 0 50px 0;
+}
+
+.alldoctors-header p{
+    font-size: 18px;
+}
+
+.display-all-doctors-conntainer{
+    margin: 30px 0 0 0;
+    display: flex;
+    gap: 30px;
+}
+
+.speciality-type{
+    border: 1px solid black;
+    width: 230px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.speciality-type:hover{ 
+    background-color: rgb(224, 224, 224);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.activeSpeciality{
+    background-color: rgb(224, 224, 224);
+}
+
+.display-doctors{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: center;
+    margin: 0 auto;
+    gap: 25px;
+}
+
+.doctors-card{
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+    max-width: 250px;
+}
+
+.doctors-card:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* adjust speciality according to screen size */
+
+.specilaity-filter-box{
+    position: relative;
+    margin: 0 0 80px 0;
+}
+
+.adjust-specilaity-container-div{
+    position: relative;
+    margin: 0 0 80px 0;
+
+}
+
+.adjust-specilaity-container{
+    position: absolute;
+    right: 0;
+    top: -60px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-speciality{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 15px 15px 0 15px;
+    background-color: #e8f3ff;
+    display: none;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.active-adjustFilterDropDown{
+    display: block;
+    top: -14px;
+}
+
+.dropDown-speciality-type{
+    border: 1px solid grey;
+    padding: 10px 55px 10px 10px;
+    margin-bottom: 15px;
+}
+
+.adjust-specilaity-container:hover{
+    cursor: pointer;
+}
+
+.adjust-specilaity-container p {
+    font-size: 18px;
+}
+
+.active-filter{
+    background-color: #e8f3ff;
+}
+
+@media (max-width: 920px){
+    .speciality-section{
+        display: none;
+    }
+    .doctors-card{
+        max-width: 220px;
+    }
+    .card-img-box{
+        height: 180px;
+    }
+}
+
+@media (min-width: 920px){
+    .specilaity-filter-box{
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .display-doctors {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 460px) {
+    .alldoctors-header p{
+        font-size: 15px;
+    }
+    .adjust-specilaity-container p {
+        font-size: 15px;
+    }
+    .active-adjustFilterDropDown{
+        display: block;
+        top: -22px;
+    }
+    .dropDown-speciality-type{
+        padding: 9px 80px 6px 6px;
+        font-size: 14px;
+    }
+    .doctors-ratings i{
+        font-size: 12px;
+    }
+}
