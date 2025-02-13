@@ -36,7 +36,7 @@ const Navbar = ({ setShowLogin }) => {
                         <div className='logo'>
                             <img src="./AmenX.png" alt="logo" />
                         </div>
-                        <Link to="/"><h2 className='nav-logo'>AmenX</h2></Link>
+                        <Link to="/"><h4 className='nav-logo'>Atom</h4></Link>
                     </div>
 
                     <div className={`middle-nav ${menu ? 'show-menu' : ''}`}>

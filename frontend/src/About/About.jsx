@@ -20,7 +20,7 @@ const About = () => {
                   <strong>About Us</strong>
                 </h5>
                 <p>
-                  Welcome to AmenX Hospital, where compassionate care meets
+                  Welcome to Atom Hospital, where compassionate care meets
                   medical excellence. Our mission is to provide top-quality
                   healthcare services with a patient-centered approach, ensuring
                   that every individual receives personalized and effective
@@ -33,7 +33,7 @@ const About = () => {
                   <strong>Our Mission</strong>
                 </h5>
                 <p>
-                  At AmenX Hospital, we are dedicated to delivering
+                  At Atom Hospital, we are dedicated to delivering
                   comprehensive healthcare with a commitment to innovation,
                   excellence, and patient satisfaction. We strive to enhance the
                   well-being of our community through accessible, affordable,
@@ -50,7 +50,7 @@ const About = () => {
               <strong>Our Mission</strong>
             </h5>
             <p>
-              At AmenX Hospital, we are dedicated to delivering
+              At Atom Hospital, we are dedicated to delivering
               comprehensive healthcare with a commitment to innovation,
               excellence, and patient satisfaction. We strive to enhance the
               well-being of our community through accessible, affordable,
@@ -83,7 +83,7 @@ const About = () => {
           <div className="about-contact-box">
             <h5><strong>Contact Us</strong></h5>
             <p>If you have any questions or wish to learn more about our services, feel free to get in touch with us. Your health is our priority, and we are here to support you every step of the way.
-              Thank you for choosing AmenX hospital for your healthcare needs.
+              Thank you for choosing Atom hospital for your healthcare needs.
               <img onClick={()=>{window.scrollTo({ top: 0, behavior: "smooth" }); navigate("/contact")}} src="./share.png" alt="img" />
             </p>
           </div>

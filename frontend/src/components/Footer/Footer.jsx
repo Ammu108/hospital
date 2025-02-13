@@ -12,10 +12,10 @@ const Footer = () => {
               <div className="footer-logo">
                 <img src="./AmenX.png" alt="logo"/>
               </div>
-              <h3>AmenX</h3>
+              <h3>Atom Hospital</h3>
             </div>
             <p>
-              At AmenX Hospital, we are committed to delivering compassionate,
+              At Atom Hospital, we are committed to delivering compassionate,
               high-quality healthcare tailored to meet the unique needs of every
               patient. Our dedicated team of medical professionals strives to
               provide excellence in service, ensuring your health and well-being
@@ -57,14 +57,14 @@ const Footer = () => {
 
           <div className="right-footer-container">
             <p>+91-999-071-6368</p>
-            <p>Contact @amenx.com</p>
+            <p>atomhospital@gmail.com</p>
           </div>
         </div>
 
         <div className="copy-right-section">
           <hr />
           <p>
-            © 2024 AmenX Hospital App. All Rights Reserved. Designed By{" "}
+            © 2024 Atom Hospital App. All Rights Reserved. Designed By{" "}
             <span>AmenX</span>
           </p>
         </div>

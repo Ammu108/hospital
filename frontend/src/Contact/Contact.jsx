@@ -18,7 +18,7 @@ const Contact = () => {
                 following channels:
               </p>
               <p className='addres'>Hospital Address: 123 Health Street, Wellness City, HC 56789.</p>
-
+              
               <div className='infos phone-numbers-div'>
                  <p className='info-title phone-number'><strong>Phone Numbers :</strong></p>
                  <p>General Inquiries: +1 (123) 456-7890</p>
@@ -28,8 +28,7 @@ const Contact = () => {
 
               <div className='infos email-div'>
                  <p className='info-title email'><strong>Email :</strong></p>
-                 <p>Appointments: appointments@amenxhospital.com</p>
-                 <p>Support: support@amenxhospital.com</p>
+                 <p>Support: atomhospital@gmail.com</p>
               </div>
 
               {/* <div className='available-time'>

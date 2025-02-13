@@ -13,17 +13,51 @@
     padding: 25px 15px 25px 15px;
     width: 65%;
     border-radius: 10px;
+    margin-top: 40px;
 }
 
 .book-appointment-header{
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     background-color: #f0f7ff;
     padding: 15px;
+}
+
+.succes-container{
+    background-color: #B6FFA1;
+    color: #069719;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 10px 20px;
 }
 
 .submit-appointment-btn{
     width: 100%;
     border: none;
+}
+
+.submit-appointment-btn button{
+    width: 100%;
+    height: 40px;
+    background-color: #9bc4f3;
+    border: none;
+    border-radius: 5px;
+    color: #2C3E50;
+    font-weight: bold;
+}
+
+.submit-appointment-btn button:hover{
+    opacity: 0.9;
+}
+
+.submit-appointment-btn button:active{
+    scale: 0.9;
+}
+
+.error-container{
+    background-color: rgb(236, 156, 156);
+    color: red;
 }
 
 @media ( max-width: 680px ){
@@ -49,6 +83,9 @@
 }
 
 @media ( max-width: 520px){
+    .inside-book-appointment{
+        width: 100%;
+    }
     .book-appointment-header{
         margin-bottom: 30px;
     }
