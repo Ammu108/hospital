@@ -9,6 +9,8 @@ import BookAppointment from './BookAppointment/BookAppointment'
 import AllDoctors from './AllDoctors/AllDoctors'
 import Footer from './components/Footer/Footer'
 import AboutDoctor from './AboutDoctor/AboutDoctor'
+import YourAppointment from './YourAppointment/YourAppointment'
+import UpdateAppointment from './UpdateAppointment/UpdateAppointment'
 
 
 const App = () => {
@@ -26,9 +28,10 @@ const App = () => {
           <Route path="/alldoctors" element={<AllDoctors />} />
           <Route path="/alldoctors/:speciality" element={<AllDoctors />} />
           <Route path="/contact" element={<Contact />} />
-          {/* <Route path="/signup" element={<SignUp />} /> */}
           <Route path="/bookappointment" element={<BookAppointment />} />
           <Route path="/aboutdoctor/:docId" element={<AboutDoctor />} />
+          <Route path="/yourappointment" element={<YourAppointment/>}/>
+          <Route path='/updateappointment/:id' element={<UpdateAppointment/>}/>
         </Routes>
         <Footer />
       </div>

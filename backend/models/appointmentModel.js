@@ -1,12 +1,16 @@
 import mongoose from "mongoose";
 
 const appointmentSchema = new mongoose.Schema({
-    name:{
+    userId:{
         type: String,
         required: true,
     },
+    name:{
+        type: String,  
+        required: true,
+    },
     dob:{
-        type: Date,
+        type: String,
         required: true,
     },
     gender:{
@@ -26,7 +30,7 @@ const appointmentSchema = new mongoose.Schema({
         required: true,
     },
     date:{
-        type: Date,
+        type: String,
         required: true,
     },
     time:{
@@ -40,7 +44,11 @@ const appointmentSchema = new mongoose.Schema({
     description:{
         type: String,
         required: true,
-    }
+    },
+    cancelled:{
+        type: Boolean,
+        default: false,
+    },
 })
 
 const appointmentModel = mongoose.models.appointment || mongoose.model("appointment", appointmentSchema);

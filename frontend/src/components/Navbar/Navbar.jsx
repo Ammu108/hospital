@@ -6,6 +6,7 @@ import { AppContext } from '../../context/AppContext';
 const Navbar = ({ setShowLogin }) => {
 
     const [menu, setMenu] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
     const { token, setToken, user, setUser } = useContext(AppContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -26,6 +27,10 @@ const Navbar = ({ setShowLogin }) => {
 
     const toggleUserInfo = () => {
         setShowUserInfo(!showUserInfo);
+    };
+
+    const toggleDropdown = () => {
+        setDropdownOpen(!dropdownOpen)
     };
 
     return (
@@ -56,9 +61,29 @@ const Navbar = ({ setShowLogin }) => {
                             <Link to="/contact">
                                 <li className={`nav-menu ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</li>
                             </Link>
-                            <Link to="/bookappointment">
-                                <li className={`nav-menu ${location.pathname === '/bookappointment' ? 'active' : ''}`}>Book Appointment</li>
-                            </Link>
+
+                            {!token ? (
+                                <Link to="/bookappointment">
+                                    <li className={`nav-menu ${location.pathname === '/bookappointment' ? 'active' : ''}`}>Book Appointment</li>
+                                </Link>
+                            ) : (
+                                <li className="nav-menu dropdown">
+                                    <div className="dropdown-toggle" onClick={toggleDropdown}>
+                                        Services
+                                    </div>
+                                    {dropdownOpen && (
+                                        <ul className="dropdown-menu">
+                                            <Link to="/bookappointment">
+                                                <li className={`nav-menu ${location.pathname === '/bookappointment' ? 'active' : ''}`}>Book Appointments</li>
+                                            </Link>
+                                            <hr />
+                                            <Link to="/yourappointment">
+                                                <li className={`nav-menu ${location.pathname === '/yourappointment' ? 'active' : ''}`}>My Appointments</li>
+                                            </Link>
+                                        </ul>
+                                    )}
+                                </li>
+                            )}
 
                             <div className='adjustable-user-section-navbar'>
                                 {!token ? (

@@ -6,12 +6,14 @@ const bookingDetails = async (req, res) => {
     try {
         const { name, dob, gender, number, email, preferredDoctor, date, time, address, description } = req.body;
 
+        const userId = req.user.id;
+
         if (!name || !dob || !gender || !number || !email || !preferredDoctor || !date || !time || !address || !description) {
             return res.status(400).json({ error: "All Fields Are Required" })
         }
 
         const newAppointment = new appointmentModel({
-            name, dob, gender, number, email, preferredDoctor, date, time, address, description,
+            userId, name, dob, gender, number, email, preferredDoctor, date, time, address, description,
         });
 
         await newAppointment.save();
@@ -53,4 +55,73 @@ const bookingDetails = async (req, res) => {
     }
 };
 
-export default bookingDetails;
+
+// List Appointment
+
+const listAppointment = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const appointments = await appointmentModel.find({ userId });
+
+        res.json({ success: true, appointments })
+    } catch (error) {
+        console.log(error)
+        return res.json({ success: false, message: error.message })
+    }
+}
+
+// Doctor Appointment
+
+const cancelledAppointment = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const { appointmentId } = req.body;
+
+        const appointmentData = await appointmentModel.findById(appointmentId);
+
+        if (appointmentData.userId !== userId) {
+            return res.json({ success: false, message: "Unauthorized Action" })
+        }
+
+        await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true });
+
+        return res.json({ success: true, message: "Appointment successfully cancelled" });
+
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+// getting user
+
+const getAppointment =  async(req, res) => {
+    try {
+        const id = req.params.id;
+        const userExist = await appointmentModel.findById(id);
+        if(!userExist){
+            return res.status(404).json({message:"User Not Found"});
+        }
+        res.status(200).json(userExist);
+    } catch (error) {
+        res.status(500).json({error:error});
+    }
+}
+
+// update user
+
+const updateAppointment = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const userExist = await appointmentModel.findById(id);
+        if(!userExist){
+            return res.status(401).json({message:"User Not Found"});
+        }
+        const updatedAppointment = await appointmentModel.findByIdAndUpdate(id, req.body, {new:true});
+        res.status(200).json(updatedAppointment);
+    } catch (error) {
+        res.status(500).json({error: error})
+    }
+}
+
+export { bookingDetails, listAppointment, cancelledAppointment, getAppointment, updateAppointment };

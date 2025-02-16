@@ -20,6 +20,7 @@ app.use(cors())
 app.use("/api/user", userRouter);
 app.use("/api/appointment", appointmentRouter);
 
+
 app.get("/", (req, res) => {
     res.send("API Working")
 })

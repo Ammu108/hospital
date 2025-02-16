@@ -55,9 +55,20 @@
     scale: 0.9;
 }
 
+.error-parent-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .error-container{
     background-color: rgb(236, 156, 156);
     color: red;
+    height: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media ( max-width: 680px ){

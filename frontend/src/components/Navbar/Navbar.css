@@ -75,6 +75,23 @@ a {
     list-style: none
 }
 
+.dropdown-menu{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color:#D9EAFD;
+    width: 190px;
+}
+
+.dropdown-menu li{
+    font-size: 1.1rem;
+}
+
+.dropdown-menu hr{
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
 /* .nav-menu::after {
     content: "";
     position: absolute;

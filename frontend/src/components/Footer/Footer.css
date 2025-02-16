@@ -49,6 +49,7 @@
 .social-media-icons i{
     padding-right: 10px;
     transition: transform 0.3s ease;
+    font-size: 30px;
 }
 
 .social-media-icons i:hover{
