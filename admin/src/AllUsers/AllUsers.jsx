@@ -17,20 +17,20 @@ const AllUsers = () => {
     }
 
     const handleDelete = async (appointmentId) => {
-        if (!window.confirm("Are you sure you want to delete this appointment?")) return;
+        if (!window.confirm("Are you sure you want to delete this user?")) return;
     
         try {
           const response = await axios.delete(`${backendUrl}/api/user/delete-user`, {headers: { aToken }, data: { id: appointmentId }});
     
           if (response.data.success) {
-            toast.success("Appointment deleted successfully!");
+            toast.success("user deleted successfully!");
             navigate("/dashboard"); // Redirect to appointments list
           } else {
-            toast.error("Failed to delete appointment");
+            toast.error("Failed to delete user");
           }
         } catch (error) {
-          console.error("Error deleting appointment:", error);
-          toast.error("Error deleting appointment");
+          console.error("Error deleting user:", error);
+          toast.error("Error deleting user");
         }
       };
 

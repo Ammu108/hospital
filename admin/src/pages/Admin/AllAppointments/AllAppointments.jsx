@@ -12,7 +12,7 @@ const AllAppointments = () => {
 
   const { backendUrl, allAppointments, getAllAppointments, aToken, cancelAppointments } = useContext(AdminContext);
   const { calculateAge } = useContext(AppContext);
-  const navigate = useNavigate
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (aToken) {

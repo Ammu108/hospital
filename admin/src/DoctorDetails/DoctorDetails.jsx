@@ -3,6 +3,7 @@ import './DoctorDetails.css'
 import { useNavigate, useParams } from 'react-router-dom';
 import { AdminContext } from '../context/AdminContext';
 import axios from 'axios'
+import { toast } from 'react-toastify';
 
 const DoctorDetails = () => {
 
@@ -33,6 +34,26 @@ const DoctorDetails = () => {
 
         fetchData();
     }, [id, backendUrl, aToken]);
+
+    const handleDelete = async (doctorId) => {
+        if (!window.confirm("Are you sure you want to delete this doctor?")) return;
+      
+        try {
+          const response = await axios.delete(`${backendUrl}/api/doctor/delete-doctor/${doctorId}`, {
+            headers: { aToken }
+          });
+      
+          if (response.data.success) {
+            toast.success("Doctor deleted successfully!");
+            navigate("/doctor-list");
+          } else {
+            toast.error("Failed to delete doctor");
+          }
+        } catch (error) {
+          console.error("Error deleting doctor:", error);
+          toast.error("Error deleting doctor");
+        }
+      };      
 
     return (
         <>
@@ -65,7 +86,10 @@ const DoctorDetails = () => {
                                         <div className='about-doctor-div'>
                                             <div className='about-doctor-name-div'>
                                                 <h2>{docData.name}</h2>
-                                               <i><p className='doctor-added-date'>{docData.date}</p></i>
+                                                <div className='about-doctor-delete-action'>
+                                                    <i><p className='doctor-added-date'>{docData.date}</p></i>
+                                                    <button onClick={() => handleDelete(docData._id)} >Delete</button>
+                                                </div>
                                             </div>
 
                                             <div className='qualifications'>

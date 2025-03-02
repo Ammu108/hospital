@@ -71,7 +71,7 @@ const AssignDoctor = () => {
         ) : (
           <div className='loading-div-parent'>
             <div className='loading-div'>
-              <h2>Loading Appointments...</h2>
+              <h2>Loading Doctor...</h2>
               <span class="loader"></span>
             </div >
           </div >

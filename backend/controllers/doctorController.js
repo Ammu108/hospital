@@ -24,7 +24,7 @@ const addDoctor = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // upload image to cloudinary
-        const imageUpload = await cloudinary.uploader.upload(imageFile.path, {resource_type: "image"});
+        const imageUpload = await cloudinary.uploader.upload(imageFile.path, { resource_type: "image" });
         const imageUrl = imageUpload.secure_url
 
         // Create New Doctor
@@ -55,13 +55,13 @@ const addDoctor = async (req, res) => {
 
 const doctorList = async (req, res) => {
     try {
-        
+
         const doctors = await doctorModel.find({}).select(['-password'])
-        res.json({success:true,doctors})
+        res.json({ success: true, doctors })
 
     } catch (error) {
         console.log(error)
-        res.json({success:false,message:error.message})
+        res.json({ success: false, message: error.message })
     }
 }
 
@@ -71,8 +71,8 @@ const doctorDetails = async (req, res) => {
     try {
         const id = req.params.id;
         const doctorExist = await doctorModel.findById(id);
-        if(!doctorExist){
-            return res.status(404).json({message:"Doctor Not Found"});
+        if (!doctorExist) {
+            return res.status(404).json({ message: "Doctor Not Found" });
         }
         res.status(200).json(doctorExist);
     } catch (error) {
@@ -80,31 +80,50 @@ const doctorDetails = async (req, res) => {
     }
 }
 
+// API to delete the particular doctor
+
+const deleteDoctor = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const deleteDoctor = await doctorModel.findByIdAndDelete(id);
+
+        if (!deleteDoctor) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+
+        res.json({ success: true, message: "User deleted successfully" });
+
+    } catch (error) {
+        res.status(500).json({ success: false, message: "Internal Server Error" })
+
+    }
+}
+
 // API to login the doctor
 
 const loginDoctor = async (req, res) => {
     try {
-        
-        const { email, password} = req.body
-        const doctor = await doctorModel.findOne({email})
 
-        if(!doctor){
-            return res.json({success: false,message:"Invalid Credentailals"})
+        const { email, password } = req.body
+        const doctor = await doctorModel.findOne({ email })
+
+        if (!doctor) {
+            return res.json({ success: false, message: "Invalid Credentailals" })
         }
 
         const isMatch = await bcrypt.compare(password, doctor.password)
 
         if (isMatch) {
-            const token = jwt.sign({id:doctor._id}, process.env.JWT_SECRET)
-            res.json({success:true, token})
+            const token = jwt.sign({ id: doctor._id }, process.env.JWT_SECRET)
+            res.json({ success: true, token })
         } else {
-            res.json({success:false,message:"Invalid Credentials"})
+            res.json({ success: false, message: "Invalid Credentials" })
         }
- 
+
     } catch (error) {
         console.log(error)
-        res.status(500).json({ success: false, message:error.message })
+        res.status(500).json({ success: false, message: error.message })
     }
 }
 
-export { addDoctor, doctorList, doctorDetails, loginDoctor }
+export { addDoctor, doctorList, doctorDetails, loginDoctor, deleteDoctor }

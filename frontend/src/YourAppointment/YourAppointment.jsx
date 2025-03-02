@@ -91,7 +91,7 @@ const YourAppointment = () => {
                                             <p>Date Of Birth :- {item.dob}</p>
                                             <div className='see-doctor-details-adjustable'>
                                                 <p>Gender :- {item.gender}</p>
-                                                {item.status === "Confirmed" && <button className='see-details-btn-adjustable'>See Dr. Details</button>}
+                                                {item.status === "Confirmed" && <Link to={`/see-doctorDetails/` + item._id} className='see-details-btn-adjustable'>See Dr. Details</Link>}
                                             </div>
                                             <p>Phone No. :- {item.number}</p>
                                             <p>Email : - {item.email}</p>

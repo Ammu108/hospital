@@ -53,6 +53,8 @@
     background-color: transparent;
     border: 1px solid black;
     transition: all ease 0.2s;
+    text-align: center;
+    padding-top: 5px;
     display: none;
 }
 
