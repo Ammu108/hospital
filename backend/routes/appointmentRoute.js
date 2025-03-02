@@ -11,4 +11,4 @@ appointmentRouter.post("/cancel-appointment", authMiddleware, cancelledAppointme
 appointmentRouter.get("/getappointment/:id",  getAppointment);
 appointmentRouter.put("/updateAppointment/:id",  updateAppointment);
 
-export default appointmentRouter;
+export default appointmentRouter; 

@@ -92,21 +92,6 @@ a {
     margin-bottom: 6px;
 }
 
-/* .nav-menu::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px; 
-    width: 0; 
-    height: 3px; 
-    background-color: #a2b6cb; 
-    transition: width 0.3s ease;
-}
-
-.nav-menu:hover::after {
-    width: 100%;
-} */
-
 .nav-menu.active {
     border-bottom: 3px solid #a2b6cb;
 }
@@ -251,6 +236,32 @@ a {
     font-size: 15px;
   }
 
+  .user-detail-div{
+    width: 90%;
+  }
+
+  .user-detail-div p{
+    width: 100%;
+    white-space: normal; /* Allows wrapping */
+    overflow-wrap: anywhere;
+  }
+
+  #adjustable-nav-item-bookappointment{
+    margin-bottom: 15px;
+  }
+
+  .adjustable-nav-items{
+    display: none;
+  }
+
+  .active-adjustable-nav-items{
+    display: block;
+  }
+
+  .none-dropdown{
+    display: none;
+  }
+
  
   
   @media screen and (max-width: 992px){
@@ -306,6 +317,7 @@ a {
         gap: 10px;
     }
     .menu-bars i{
+        font-size: 1.4rem;
         padding-top: 6px;
     }
     .adjustable-text{

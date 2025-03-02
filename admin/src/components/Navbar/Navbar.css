@@ -1,0 +1,101 @@
+.admin-panel-navbar-container{
+    background-color: #D9EAFD;
+}
+
+.admin-panel-inside-navbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 95%;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.admin-navbar-left-side{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-panel-navbar-logo{
+    width: 100px;
+    height: 100px;
+    margin-right: -15px;
+    margin-top: 10px;
+    margin-left: -24px;
+}
+
+.admin-panel-navbar-logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.admin-navbar-title{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: 8px;
+}
+
+.admin-title-text{
+    display: flex;
+}
+
+.admin-panel-title{
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+
+.admin-panel-title-desc{
+    font-size: 13px;
+}
+
+.admin-panel-status{
+    width: 70px;
+    height: 20px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.admin-panel-logout-btn{
+    background-color: #95bce9;
+    border: none;
+    border-radius: 30px;
+    width: 100px;
+    padding-bottom: 5px;
+    padding-top: 3px;
+    transition: transform 0.3s ease;
+}
+
+.admin-panel-logout-btn:active{
+    transform: scale(0.9);
+}
+
+@media (max-width: 450px){
+    .admin-panel-title{
+        font-size: 20px;
+    }
+    
+    .admin-panel-title-desc{
+        font-size: 11px;
+    }
+    .admin-panel-status{
+        width: 60px;
+        font-size: 12px;
+    }
+    .admin-panel-logout-btn{
+        width: 85px;
+    }
+}

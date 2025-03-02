@@ -230,6 +230,12 @@
         width: 52%;
 
     }
+    .header-btn{
+        font-size: 13px;
+    }
+    .herader-btn-div i{
+        font-size: 14px;
+    }
 }
 
 @media ( max-width: 370px){

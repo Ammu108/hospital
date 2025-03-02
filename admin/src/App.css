@@ -1,0 +1,14 @@
+.admin-panel-body{
+    color: #2C3E50;
+}
+
+.admin-content{
+    display: flex;
+    padding: 0;
+}
+
+.inside-admin-content{
+    padding: 55px 20px 20px 20px;
+    background-color: rgb(242, 245, 248);
+    width: 100%;
+}

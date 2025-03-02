@@ -16,7 +16,6 @@ const BookAppointment = () => {
     gender: "",
     number: "",
     email: "",
-    preferredDoctor: "",
     date: "",
     time: "",
     address: "",
@@ -60,8 +59,7 @@ const BookAppointment = () => {
         setClose(true);
         window.scrollTo({ top: 0, behavior: "smooth" });
         setData({
-          name: "", dob: "", gender: "", number: "", email: "",
-          preferredDoctor: "", date: "", time: "", address: "", description: "",
+          name: "", dob: "", gender: "", number: "", email: "", date: "", time: "", address: "", description: "",
         });
       } else {
         setError(response.data.message)
@@ -114,15 +112,6 @@ const BookAppointment = () => {
             <div className="col-md-6">
               <label htmlFor="inputEmail" className="form-label">Email Address</label>
               <input type="email" name='email' value={data.email} onChange={onChangeHandler} className="form-control" id="inputEmail" placeholder="enter your email addrerss" required />
-            </div>
-            <div className="col-md-6">
-              <label htmlFor="preferredDoctor" className="form-label">Preferred Doctor:</label>
-              <select id="preferredDoctor" name="preferredDoctor" value={data.preferredDoctor} onChange={onChangeHandler} className="form-control" required>
-                <option value="">Select Doctor</option>
-                <option value="dr-smith">Dr. Smith (Cardiologist)</option>
-                <option value="dr-johnson">Dr. Johnson (Dermatologist)</option>
-                <option value="dr-stephen">Dr. stephen (General Physician)</option>
-              </select>
             </div>
             <div className="col-md-6">
               <label htmlFor="inputDate" className="form-label">Appointment Date:</label>

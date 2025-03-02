@@ -1,0 +1,130 @@
+.confirmed-appointment-header{
+    font-size: 25px;
+    margin: -35px 0 20px 0;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inside-admin-confirmed-appointment-container{
+    width: 100%;
+    height: 450px;
+    background-color: white;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.inside-admin-confirmed-appointment-container::-webkit-scrollbar {
+    display: none;
+}
+
+.inside-admin-confirmed-appointment-container{
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.admin-confirmed-appointment-patient-title{
+    font-size: 19px;
+}
+
+.confirmed-appointment-header-bar{
+    border: 2px solid black;
+    margin: 6px 0 15px 0;
+}
+
+.confirmed-doctor-img-div {
+    height: 170px;
+    width: 150px;
+    border-radius: 5px;
+}
+
+.confirmed-doctor-img-div img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.confirm-appointment-completed-btn button{
+    width: 100%;
+    margin-top: 40px;
+    background-color: #95bce9;
+    border: none;
+    border-radius: 30px;
+    height: 50px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.confirm-appointment-completed-btn button:active{
+    transform: scale(0.9);
+}
+
+.loading-div-parent{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    border: 3px solid;
+    border-color: #D9EAFD #D9EAFD transparent transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .loader::after,
+  .loader::before {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid;
+    border-color: transparent transparent #c0ddfe #c0ddfe;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotationBack 0.5s linear infinite;
+    transform-origin: center center;
+  }
+  .loader::before {
+    width: 32px;
+    height: 32px;
+    border-color: #D9EAFD #D9EAFD transparent transparent;
+    animation: rotation 1.5s linear infinite;
+  }
+      
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+  @keyframes rotationBack {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }

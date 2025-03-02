@@ -1,0 +1,164 @@
+.confirm-appointment-header-container{
+    margin-top: -30px;
+}
+
+.confirm-appointment-header-container button{
+    margin-bottom: 5px;
+    background-color: #95bce9;
+    width: 80px;
+    height: 25px;
+    border-radius: 40px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.3s ease;
+}
+
+.confirm-appointment-header-container button:hover{
+    transform: scale(1.03);
+}
+
+.confirm-appointment-header-container button:active{
+    transform: scale(0.9);
+}
+
+.confirm-appointment-header {
+    font-size: 25px;
+    margin: -35px 0 20px 0;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inside-admin-confirm-appointment-container {
+    width: 100%;
+    height: 450px;
+    background-color: white;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.inside-admin-confirm-appointment-container::-webkit-scrollbar {
+    display: none;
+}
+
+.inside-admin-confirm-appointment-container {
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.assign-doctor-header-title {
+    margin: -8px 0 8px 0;
+    font-size: 19px;
+}
+
+.assign-doctor-header-bar {
+    margin: -2px 0 20px 0;
+}
+
+.assign-doctor-form-header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-assign-doctor-img-div {
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+}
+
+.admin-assign-doctor-img-div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.confirm-appointment-patient-details-header {
+    font-size: 19px;
+}
+
+.confirm-appointment-patient-details-bar {
+    margin: 8px 0 10px 0;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.details-grid div {
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.patient-appointment-status{
+    padding: 20px 20px 40px 8px;
+    display: flex;
+    gap: 10px;
+}
+
+.lable-action-status{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.lable-action-status input{
+    height: 15px;
+    width: 15px;
+}
+
+.confirm-appointment-actions-btn button{
+    width: 100%;
+    background-color: #95bce9;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 40px;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.confirm-appointment-actions-btn button:active{
+    transform: scale(0.9);
+}
+
+/* .status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.status.pending {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.appointment-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: red;
+    color: white;
+}
+
+.no-cancel-btn {
+    background-color: green;
+    color: white;
+} */

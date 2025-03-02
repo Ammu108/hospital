@@ -32,12 +32,18 @@
 }
 
 /* Close button styling */
-.cross-icon {
-    cursor: pointer;
-    font-size: 20px;
+
+.cross-icon-signup-div{
+    margin-top: 10px;
 }
 
-.cross-icon:hover {
+.cross-icon-signup {
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.cross-icon-signup:hover {
     transform: scale(1.1);
 }
 

@@ -1,3 +1,9 @@
+import amenx from "./AmenX.png"
+
+export const clientImages = {
+    amenx,
+}
+
 export const specialityMenu = [
     {
         speciality: "General Physicians",

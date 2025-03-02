@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import { Route, Routes } from 'react-router-dom'
 import About from './About/About'
@@ -11,6 +11,8 @@ import Footer from './components/Footer/Footer'
 import AboutDoctor from './AboutDoctor/AboutDoctor'
 import YourAppointment from './YourAppointment/YourAppointment'
 import UpdateAppointment from './UpdateAppointment/UpdateAppointment'
+import { ToastContainer, toast } from 'react-toastify';
+import AssignDoctor from './AssignDoctor/AssignDoctor'
 
 
 const App = () => {
@@ -22,6 +24,7 @@ const App = () => {
       {showLogin ? <SignUp setShowLogin={setShowLogin} /> : <></>}
       <div className='app'>
         <Navbar setShowLogin={setShowLogin} />
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -30,8 +33,9 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/bookappointment" element={<BookAppointment />} />
           <Route path="/aboutdoctor/:docId" element={<AboutDoctor />} />
-          <Route path="/yourappointment" element={<YourAppointment/>}/>
-          <Route path='/updateappointment/:id' element={<UpdateAppointment/>}/>
+          <Route path="/yourappointment" element={<YourAppointment />} />
+          <Route path='/updateappointment/:id' element={<UpdateAppointment />} />
+          <Route path='/see-doctorDetails/:id' element={<AssignDoctor />} />
         </Routes>
         <Footer />
       </div>

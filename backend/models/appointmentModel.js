@@ -1,55 +1,93 @@
 import mongoose from "mongoose";
 
 const appointmentSchema = new mongoose.Schema({
-    userId:{
+    userId: {
         type: String,
         required: true,
     },
-    name:{
-        type: String,  
-        required: true,
-    },
-    dob:{
+    name: {
         type: String,
         required: true,
     },
-    gender:{
+    dob: {
         type: String,
         required: true,
     },
-    number:{
+    gender: {
         type: String,
         required: true,
     },
-    email:{
+    number: {
         type: String,
         required: true,
     },
-    preferredDoctor:{
+    email: {
         type: String,
         required: true,
     },
-    date:{
+    date: {
         type: String,
         required: true,
     },
-    time:{
+    time: {
         type: String,
         required: true,
     },
-    address:{
+    address: {
         type: String,
         required: true,
     },
-    description:{
+    description: {
         type: String,
         required: true,
     },
-    cancelled:{
+    cancelled: {
         type: Boolean,
         default: false,
     },
+    status: {
+        type: String,
+        required: true,
+    },
+    bookedAt: {
+        type: String,
+
+    },
+    assignedDoctor: {
+        docId: {
+            type: String,
+        },
+        image: {
+            type: String,
+        },
+        docName: {
+            type: String,
+        },
+        docPhone: {
+            type: String,
+        },
+        department: {
+            type: String,
+        },
+        description: {
+            type: String,
+        },
+        consultingFee: {
+            type: String,
+        },
+        assignedAt: {
+            type: String,
+        },
+    }
+
 })
+
+appointmentSchema.pre("save", function (next) {
+    const date = new Date();
+    this.bookedAt = date.toLocaleString("en-GB", { timeZone: "Asia/Kolkata" });
+    this.assignedAt = date.toLocaleString("en-GB", { timeZone: "Asia/Kolkata" });
+    next();
+});
 
 const appointmentModel = mongoose.models.appointment || mongoose.model("appointment", appointmentSchema);
 export default appointmentModel;

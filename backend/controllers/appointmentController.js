@@ -4,16 +4,16 @@ import nodemailer from 'nodemailer';
 const bookingDetails = async (req, res) => {
 
     try {
-        const { name, dob, gender, number, email, preferredDoctor, date, time, address, description } = req.body;
+        const { name, dob, gender, number, email, date, time, address, description } = req.body;
 
         const userId = req.user.id;
 
-        if (!name || !dob || !gender || !number || !email || !preferredDoctor || !date || !time || !address || !description) {
+        if (!name || !dob || !gender || !number || !email || !date || !time || !address || !description) {
             return res.status(400).json({ error: "All Fields Are Required" })
         }
 
         const newAppointment = new appointmentModel({
-            userId, name, dob, gender, number, email, preferredDoctor, date, time, address, description,
+            userId, name, dob, gender, number, email, date, time, address, description, status: "Pending", bookedAt: new Date(), 
         });
 
         await newAppointment.save();
@@ -32,8 +32,8 @@ const bookingDetails = async (req, res) => {
         const mailOptions = {
             from: "atomhospital@gmail.com",
             to: email, // Send to user's email
-            subject: "Appointment Confirmation",
-            text: `Hello ${name},\n\nYour appointment with ${preferredDoctor} is confirmed for ${date} at ${time}.
+            subject: "Appointment Booked",
+            text: `Hello ${name},\n\nYour appointment is booked for ${date} at ${time}.
             \n\nAddress: ${address}\n\n\nYou will receive a confirmation email once your appointment is 
             confirmed within 2 days. If you need to cancel, please do so at least 24 hours in advance.
             \n\nThank you!\nAtom Hospital Team.`,
@@ -60,6 +60,7 @@ const bookingDetails = async (req, res) => {
 
 const listAppointment = async (req, res) => {
     try {
+        
         const userId = req.user.id;
         const appointments = await appointmentModel.find({ userId });
 
@@ -70,7 +71,7 @@ const listAppointment = async (req, res) => {
     }
 }
 
-// Doctor Appointment
+// Cancelled Appointment
 
 const cancelledAppointment = async (req, res) => {
     try {
@@ -83,7 +84,7 @@ const cancelledAppointment = async (req, res) => {
             return res.json({ success: false, message: "Unauthorized Action" })
         }
 
-        await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true });
+        await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true, status: "Rejected" });
 
         return res.json({ success: true, message: "Appointment successfully cancelled" });
 

@@ -31,6 +31,35 @@
     position: relative;
 }
 
+.status-div-adjustable{
+    display: flex;
+    justify-content: space-between;
+}
+
+.see-doctor-details-adjustable{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.see-details-btn-adjustable{
+    margin-left: 10px;
+    width: 120px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid black;
+    transition: all ease 0.2s;
+    display: none;
+}
+
+.see-details-btn-adjustable:hover{
+    background-color: #D9EAFD;
+}
+
 .cross-icon-div{
     position: absolute;
     top: -70px;
@@ -50,6 +79,31 @@
 .cross-icon-div:hover{
     cursor: pointer;
     transform: scale(1.1);
+}
+
+.edit-btn-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.see-details-btn{
+    margin-left: 10px;
+    width: 200px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid black;
+    transition: all ease 0.2s;
+    display: block;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.see-details-btn:hover{
+    background-color: #D9EAFD;
 }
 
 .edit-btn{
@@ -86,6 +140,7 @@
     background-color: transparent;
     border: 1px solid black;
     transition: all ease 0.2s;
+    margin-bottom: -30px;
 }
 
 .cancel-btn:hover{
@@ -123,6 +178,27 @@
     margin-bottom: 7px;
 }
 
+.status-div{
+    margin-bottom: 60px;
+    position: absolute;
+    right: 0;
+    top: -46px;
+    width: 100px;
+}
+
+.status-text{
+    display: none;
+}
+
+.see-doctor-details-div{
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.see-doctor-details-div-bar{
+    margin: 7px 0 20px 0;
+}
+
 @media (max-width: 550px){
     .my-appointments-header p{
         font-size: 20px;
@@ -139,9 +215,81 @@
         width: 120px;
     }
     .canceled-btn{
+        margin-top: 17px;
         height: 45px;
+        width: 250px;
+        margin-bottom: 4px;
+        margin-left: 10px;
     }
 }
+
+.loading-div-parent{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    border: 3px solid;
+    border-color: #D9EAFD #D9EAFD transparent transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .loader::after,
+  .loader::before {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid;
+    border-color: transparent transparent #c0ddfe #c0ddfe;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotationBack 0.5s linear infinite;
+    transform-origin: center center;
+  }
+  .loader::before {
+    width: 32px;
+    height: 32px;
+    border-color: #D9EAFD #D9EAFD transparent transparent;
+    animation: rotation 1.5s linear infinite;
+  }
+      
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+  @keyframes rotationBack {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+      
 
 @media (max-width: 450px){
     .adjustable-div{
@@ -155,9 +303,27 @@
     .edit-btn-div{
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        flex-direction: row;
     }
     .edit-btn{
         margin-left: 0px;
+        font-size: 14px;
+        width: 120px;
+    }
+    .edit-btn-div button{
+        font-size: 14px;
+        width: 160px;
+    }
+    .status-div{
+        display: none;
+    }
+    .status-text{
+        display: block;
+    }
+    .see-details-btn-adjustable{
+        display: block;
+    }
+    .see-details-btn{
+        display: none;
     }
 }

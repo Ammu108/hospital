@@ -1,0 +1,144 @@
+.admin-all-appointments-container{
+    width: 100%;
+    margin-top: -35px;
+}
+
+.all-appointments-header p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.all-appointments-form-container{
+    width: 100%;
+    background-color: white;
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.inside-all-appointments-form-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.all-appointments-form-order{
+    width: 40px;
+    /* background-color: red; */
+    padding: 0 10px;
+}
+
+.all-appointments-form-patientName{
+    width: 210px;
+    /* background-color: rgb(243, 164, 164); */
+}
+
+.all-appointments-form-age{
+    width: 30px;
+    /* background-color: rgb(164, 234, 243); */
+}
+
+.all-appointments-form-date-time{
+    width: 140px;
+    /* background-color: rgb(188, 164, 243); */
+}
+
+.all-appointments-form-assign-description{
+    width: 210px;
+    /* background-color: rgb(24, 192, 178); */
+}
+
+.all-appointments-form-assign-status{
+    width: 100px;
+    /* background-color: aquamarine; */
+}
+
+.all-appointments-form-actions{
+    width: 160px;
+    /* background-color: rgb(188, 164, 243); */
+    padding: 0 10px 0 0;
+}
+
+.form-border{
+    border: 2px solid black;
+}
+
+.inside-all-appointments-details-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.patient-form-border-line{
+    margin: 8px 0;
+}
+
+.all-appointments-form-actions{
+    display: flex;
+    gap: 10px;
+}
+
+.cancel-btn{
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1.5px solid black;
+    transition: transform 0.3s ease;
+}
+
+.cancel-btn:hover{
+    background-color: rgb(243, 219, 219);
+    color: red;
+}
+
+.cancel-btn:active{
+    transform: scale(0.9);
+}
+
+.confirm-btn{
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1.5px solid black;
+    transition: transform 0.3s ease;
+}
+
+.confirm-btn:hover{
+    background-color: rgb(192, 250, 192);
+    color: green;
+}
+
+.confirm-btn:active{
+    transform: scale(0.9);
+}
+
+.confirmed-btn{
+    width: 85px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1.5px solid black;
+    transition: transform 0.3s ease;
+}
+
+.cancelled-btn{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    color: red;
+    border: 1.5px solid black;
+    background-color: transparent;
+}
+
+.delete-btn{
+    width: 100%;
+    height: 25px;
+    background-color: rgb(255, 205, 205);
+    color: red;
+    border-radius: 5px;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.delete-btn:active{
+    transform: scale(0.9);
+}

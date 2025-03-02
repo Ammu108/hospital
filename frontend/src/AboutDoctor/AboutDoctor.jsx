@@ -19,7 +19,6 @@ const AboutDoctor = () => {
     fetchDocInfo()
   },[doctorsDetails, docId])
 
-
   return filteredAboutDoctor && (
     <>
     <div className='doctorsAbout-container'>
@@ -50,8 +49,8 @@ const AboutDoctor = () => {
               <div className='contact-information-div'>
                 <p><strong>Contact Information</strong></p>
                  <div className='contact-information'>
-                    <p>9823748596</p>
-                    <p>stephenJames@gmail.com</p>
+                    <p>{filteredAboutDoctor.phoneNumber}</p>
+                    <p>{filteredAboutDoctor.email}</p>
                  </div>
               </div>
 

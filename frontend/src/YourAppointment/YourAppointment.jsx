@@ -8,9 +8,11 @@ const YourAppointment = () => {
 
     const { url, token } = useContext(AppContext);
     const [appointments, setAppointments] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const getAppointments = async () => {
 
+        setLoading(true);
         let newUrl = `${url}/api/appointment/yourappointment`;
 
         try {
@@ -24,6 +26,8 @@ const YourAppointment = () => {
 
         } catch (error) {
             console.log(error);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -34,7 +38,6 @@ const YourAppointment = () => {
         try {
             const response = await axios.post(newUrl, { appointmentId }, { headers: { token } });
             if (response.data.success) {
-
                 getAppointments()
 
             } else {
@@ -56,9 +59,9 @@ const YourAppointment = () => {
             <div className='my-appointments-container'>
                 <div className='inside-my-appointments-container'>
                     <div className='book-appointment-header'>
-                        <p><i>Note:-If you need to cancel or edit your appointment, please do so at least 24 hours in 
-                            advance to avoid any inconvenience. You will receive an email confirmation once your 
-                            request is processed. A doctor will be assigned to you after the confirmation, and their 
+                        <p><i>Note:-If you need to cancel or edit your appointment, please do so at least 24 hours in
+                            advance to avoid any inconvenience. You will receive an email confirmation once your
+                            request is processed. A doctor will be assigned to you after the confirmation, and their
                             details will be displayed here so that you can contact them.</i></p>
                     </div>
                     <div className='my-appointments-header'>
@@ -67,31 +70,78 @@ const YourAppointment = () => {
                     </div>
 
                     <div className='booked-appointments-container'>
-                        {appointments.length > 0 ? (
+                        {loading ? (
+                            <div className='loading-div-parent'>
+                                <div className='loading-div'>
+                                    <h2>Loading Appointments...</h2>
+                                    <span className="loader"></span>
+                                </div>
+                            </div>
+                        ) : appointments.length > 0 ? (
                             appointments.map((item, index) => (
                                 <div key={index}>
                                     <div className='adjustable-div'>
                                         <div className='inside-booked-appointments-container-left'>
-                                            <p className='patient-name'><strong>{item.name}</strong></p>
-                                            <p>Date :- {item.dob}</p>
-                                            <p>Gender :- {item.gender}</p>
+                                            <div className='status-div-adjustable'>
+                                                <p className='patient-name'><strong>{item.name}</strong></p>
+                                                {item.status === "Pending" && <p className='status-text' style={{ color: "orange" }}>🟠 Pending</p>}
+                                                {item.status === "Confirmed" && <p className='status-text' style={{ color: "green" }}>🟢 Confirmed</p>}
+                                                {item.status === "Completed" && <p className='status-text' style={{ color: "blue" }}>🔵 Completed</p>}
+                                            </div>
+                                            <p>Date Of Birth :- {item.dob}</p>
+                                            <div className='see-doctor-details-adjustable'>
+                                                <p>Gender :- {item.gender}</p>
+                                                {item.status === "Confirmed" && <button className='see-details-btn-adjustable'>See Dr. Details</button>}
+                                            </div>
                                             <p>Phone No. :- {item.number}</p>
                                             <p>Email : - {item.email}</p>
-                                            <p>Preffred Doctor :- {item.preferredDoctor}</p>
                                             <p>Appointment Date :- {item.date}</p>
                                             <p>Appointment Time :- {item.time}</p>
                                             <p>Address :- {item.address}</p>
                                             <p>Description :- {item.description}</p>
+                                            <p>Booked At :- {item.bookedAt}</p>
                                         </div>
+
                                         <div className='inside-booked-appointments-container-left-right'>
-                                            <div className='edit-btn-div'>
-                                                {!item.cancelled && <Link to={`/updateappointment/`+ item._id} className='edit-btn' >Edit</Link>}
-                                                {!item.cancelled && <button className='cancel-btn' onClick={() => handleDeleteAppointment(item._id)}>Cancel Appointment</button>}
-                                                {item.cancelled && <button className='canceled-btn'>Appointment Cancelled</button>}
+                                            <div className='status-div'>
+                                                {item.cancelled ? (
+                                                    <p style={{ color: "red" }}>🔴 Rejected</p>
+                                                ) : (
+                                                    <>
+                                                        {item.status === "Pending" && <p style={{ color: "orange" }}>🟠 Pending</p>}
+                                                        {item.status === "Confirmed" && <p style={{ color: "green" }}>🟢 Confirmed</p>}
+                                                        {item.status === "Completed" && <p style={{ color: "blue" }}>🔵 Completed</p>}
+                                                    </>
+                                                )}
                                             </div>
+                                            <div className='edit-btn-div'>
+
+                                                {item.status === "Confirmed" ? (
+                                                    <Link to={`/see-doctorDetails/` + item._id} className='see-details-btn'>See Doctor Details</Link>
+                                                ) : (
+                                                    <>
+                                                        {item.status === "Completed" ? (
+                                                            <></>
+                                                        ) : (
+                                                            <>
+                                                                {!item.cancelled && (
+                                                                    <>
+                                                                        <Link to={`/updateappointment/` + item._id} className='edit-btn'>Edit</Link>
+                                                                        <button className='cancel-btn' onClick={() => handleDeleteAppointment(item._id)}>Cancel Appointment</button>
+                                                                    </>
+                                                                )}
+                                                            </>
+                                                        )}
+                                                    </>
+                                                )}
+
+                                                {item.cancelled && <button className='canceled-btn'>Appointment Cancelled</button>}
+
+                                            </div>
+
                                         </div>
                                     </div>
-                                    <hr />
+                                    <hr className='mt-4' />
                                 </div>
                             ))
                         ) : (
@@ -101,7 +151,7 @@ const YourAppointment = () => {
                         )}
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

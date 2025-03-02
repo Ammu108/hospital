@@ -59,8 +59,8 @@ const SignUp = ({ setShowLogin }) => {
               <h3><strong>{state === "Sign up" ? "Create Account" : "Login"}</strong></h3>
               <p>{state === "Sign up" ? "Please sign up to book an appointment." : "Please login to book an appointment."}</p>
             </div>
-            <div className="cross-icon-div">
-              <i onClick={() => setShowLogin(false)} className="cross-icon fa-solid fa-x"></i>
+            <div className="cross-icon-signup-div">
+              <i onClick={() => setShowLogin(false)} className="cross-icon-signup fa-solid fa-x"></i>
             </div>
           </div>
 

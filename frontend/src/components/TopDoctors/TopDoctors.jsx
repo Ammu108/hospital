@@ -23,8 +23,10 @@ const TopDoctors = () => {
         <div className="doctors-parent-container">
           {doctorsDetails.slice(0, 5).map((item, index) => (
             <div
-              onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" });
-              navigate(`/aboutdoctor/${item._id}`)}}
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                navigate(`/aboutdoctor/${item._id}`)
+              }}
               key={index}
               className="doctor-images-card"
             >
@@ -46,7 +48,7 @@ const TopDoctors = () => {
           ))}
         </div>
 
-        <div onClick={() => {window.scrollTo({ top: 0, behavior: "smooth" }); navigate("/alldoctors")}} className="show-more-btn-div">
+        <div onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); navigate("/alldoctors") }} className="show-more-btn-div">
           <button className="show-more-btn">Show More</button>
           <i className="fa-solid fa-arrow-right"></i>
         </div>

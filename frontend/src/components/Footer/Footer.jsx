@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
+import { clientImages } from "../../assets/assets";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
           <div className="left-footer-container">
             <div className="footer-header">
               <div className="footer-logo">
-                <img src="./AmenX.png" alt="logo"/>
+                <img src={clientImages.amenx} alt="logo"/>
               </div>
               <h3>Atom Hospital</h3>
             </div>
@@ -58,6 +59,7 @@ const Footer = () => {
           <div className="right-footer-container">
             <p>+91-999-071-6368</p>
             <p>atomhospital@gmail.com</p>
+            <button onClick={() => window.open("https://admin-iota-jade.vercel.app/", "_blank")} className="admin-btn">Admin Panel</button>
           </div>
         </div>
 
