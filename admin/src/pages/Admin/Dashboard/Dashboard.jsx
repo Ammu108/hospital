@@ -3,17 +3,25 @@ import './Dashboard.css'
 import { adminImages } from '../../../assets/assets'
 import { AdminContext } from '../../../context/AdminContext'
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Dashboard = () => {
 
-    const { aToken, dashData, getDashData, cancelAppointments} = useContext(AdminContext)
+    const { aToken, dashData, getDashData, cancelAppointments } = useContext(AdminContext)
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false);
 
-    useEffect(()=>{
-        if(aToken){
-            getDashData()
-        }
-    },[aToken])
+    useEffect(() => {
+        const fetchDoctors = async () => {
+          if (aToken) {
+            setLoading(true); // Start loading
+            await getDashData(); // Wait for doctors to load
+            setLoading(false); // Stop loading after fetching
+          }
+        };
+    
+        fetchDoctors();
+      }, [aToken]);
 
     const goToAllUsers = () => {
         navigate("/all-users")
@@ -33,32 +41,32 @@ const Dashboard = () => {
                 <div className='inside-admin-dashboard-container'>
 
                     <div className='dashboard-details-parent-div'>
-                        <div onClick={goToAllUsers} className='total-users-div' style={{cursor: "pointer"}}>
+                        <div onClick={goToAllUsers} className='total-users-div' style={{ cursor: "pointer" }}>
                             <div className='new-user-img-div'>
                                 <img src={adminImages.newUser} alt='img' />
                             </div>
                             <div className='total-users-details'>
-                                <p className='total-user-number'>{dashData.users}</p>
+                                <p className='total-user-number'>{loading ? "--" : dashData.users}</p>
                                 <p className='total-user-text'>Users</p>
                             </div>
                         </div>
 
-                        <div onClick={goToAllAppointments} className='total-appointments-div' style={{cursor: "pointer"}}>
+                        <div onClick={goToAllAppointments} className='total-appointments-div' style={{ cursor: "pointer" }}>
                             <div className='total-appoiintments-img-div'>
                                 <img src={adminImages.totalAppointments} alt='img' />
                             </div>
                             <div className='total-users-details mx-4'>
-                                <p className='total-user-number'>{dashData.totalAppointments}</p>
+                                <p className='total-user-number'>{loading ? "--" : dashData.totalAppointments}</p>
                                 <p className='total-user-text'>Appointments</p>
                             </div>
                         </div>
 
-                        <div onClick={goToAllDoctors} className='total-appointments-div' style={{cursor: "pointer"}}>
+                        <div onClick={goToAllDoctors} className='total-appointments-div' style={{ cursor: "pointer" }}>
                             <div className='total-appoiintments-img-div'>
                                 <img src={adminImages.doctor} alt='img' />
                             </div>
                             <div className='total-users-details mx-4'>
-                                <p className='total-user-number'>{dashData.doctors}</p>
+                                <p className='total-user-number'>{loading ? "--" : dashData.doctors}</p>
                                 <p className='total-user-text'>Total Doctors</p>
                             </div>
                         </div>

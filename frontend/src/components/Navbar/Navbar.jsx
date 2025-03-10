@@ -50,32 +50,32 @@ const Navbar = ({ setShowLogin }) => {
                             <i className="fa-solid fa-times"></i>
                         </div>
                         <ul className={`middle-nav-menus ${menu ? 'show-middle-nav-menus' : ''}`}>
-                            <Link to="/">
+                            <Link to="/" onClick={() => setMenu(false)}>
                                 <li className={`nav-menu ${location.pathname === '/' ? 'active' : ''}`}>Home</li>
                             </Link>
-                            <Link to="/about">
+                            <Link to="/about" onClick={() => setMenu(false)}>
                                 <li className={`nav-menu ${location.pathname === '/about' ? 'active' : ''}`}>About</li>
                             </Link>
-                            <Link to="/alldoctors">
+                            <Link to="/alldoctors" onClick={() => setMenu(false)}>
                                 <li className={`nav-menu ${location.pathname.startsWith("/alldoctors") ? 'active' : ''}`}>All Doctors</li>
                             </Link>
-                            <Link to="/contact">
+                            <Link to="/contact" onClick={() => setMenu(false)}>
                                 <li className={`nav-menu ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</li>
                             </Link>
 
                             {token && (
                                 <div className={`adjustable-nav-items ${menu ? 'active-adjustable-nav-items' : ''}`}>
-                                    <Link to="/bookappointment">
+                                    <Link to="/bookappointment" onClick={() => setMenu(false)}>
                                         <li id='adjustable-nav-item-bookappointment' className={`nav-menu ${location.pathname === '/bookappointment' ? 'active' : ''}`}>Book Appointments</li>
                                     </Link>
-                                    <Link to="/yourappointment">
+                                    <Link to="/yourappointment" onClick={() => setMenu(false)}>
                                         <li className={`nav-menu ${location.pathname === '/yourappointment' ? 'active' : ''}`}>My Appointments</li>
                                     </Link>
                                 </div>
                             )}
 
                             {!token ? (
-                                <Link to="/bookappointment">
+                                <Link to="/bookappointment" onClick={() => setMenu(false)}>
                                     <li className={`nav-menu ${location.pathname === '/bookappointment' ? 'active' : ''}`}>Book Appointment</li>
                                 </Link>
                             ) : (
@@ -85,11 +85,11 @@ const Navbar = ({ setShowLogin }) => {
                                     </div>
                                     {dropdownOpen && (
                                         <ul className="dropdown-menu">
-                                            <Link to="/bookappointment">
+                                            <Link to="/bookappointment" onClick={() => setMenu(false)}>
                                                 <li className={`nav-menu ${location.pathname === '/bookappointment' ? 'active' : ''}`}>Book Appointments</li>
                                             </Link>
                                             <hr />
-                                            <Link to="/yourappointment">
+                                            <Link to="/yourappointment" onClick={() => setMenu(false)}>
                                                 <li className={`nav-menu ${location.pathname === '/yourappointment' ? 'active' : ''}`}>My Appointments</li>
                                             </Link>
                                         </ul>
@@ -115,7 +115,7 @@ const Navbar = ({ setShowLogin }) => {
                                             <>
                                                 <div className='user-detail-div'>
                                                     <p className='text-black'>{user.name}</p>
-                                                    <p className='text-black'>{user.email}</p>
+                                                    <p className='user-email fs-6'>{user.email}</p>
                                                     <a className="nav-link" onClick={handleLogout} href="#">Logout</a>
                                                 </div>
                                             </>
@@ -143,8 +143,8 @@ const Navbar = ({ setShowLogin }) => {
                                             <div className='user-info-div'>
                                                 <div className='user-info'>
                                                     <p className='text-black'>{user.name}</p>
-                                                    <p className='text-black'>{user.email}</p>
-                                                    <a className="nav-link" onClick={handleLogout} href="#">Logout</a>
+                                                    <p className='user-email'>{user.email}</p>
+                                                    <a className="nav-link fw-bold" onClick={handleLogout} href="#">Logout</a>
                                                 </div>
                                             </div>
                                         )}

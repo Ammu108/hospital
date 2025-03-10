@@ -35,6 +35,10 @@
     background-color: rgb(224, 224, 224);
 }
 
+.display-doctors-parent-container{
+    width: 100%;
+}
+
 .display-doctors{
     width: 100%;
     display: grid;
@@ -42,6 +46,10 @@
     justify-content: center;
     margin: 0 auto;
     gap: 25px;
+}
+
+.all-doctors-loading-div{
+    width: 100%;
 }
 
 .doctors-card{

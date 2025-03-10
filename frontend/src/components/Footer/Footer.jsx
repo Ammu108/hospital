@@ -59,7 +59,7 @@ const Footer = () => {
           <div className="right-footer-container">
             <p>+91-999-071-6368</p>
             <p>atomhospital@gmail.com</p>
-            <button onClick={() => window.open("https://admin-iota-jade.vercel.app/", "_blank")} className="admin-btn">Admin Panel</button>
+            <button onClick={() => window.open("https://admin-iota-jade.vercel.app/dashboard", "_blank")} className="admin-btn">Admin Panel</button>
           </div>
         </div>
 

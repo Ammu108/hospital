@@ -9,7 +9,7 @@
 .admin-addDoctor-container{
     width: 840px;
     background-color: white;
-    height: 465px;
+    height: 81vh;
     border-radius: 5px;
     overflow-y: auto;
 }

@@ -22,6 +22,7 @@ const ConfirmAppointment = () => {
 
   const { id } = useParams();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
   const { aToken, backendUrl } = useContext(AdminContext);
   const [user, setUser] = useState(users);
   const [image, setImage] = useState(null); // State for Image
@@ -65,6 +66,7 @@ const ConfirmAppointment = () => {
 
   const handleAssignDoctor = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const formData = new FormData();
     formData.append("image", image); // Append image
@@ -87,7 +89,9 @@ const ConfirmAppointment = () => {
     } catch (error) {
       toast.error(error)
       console.error("Error assigning doctor:", error);
-    }
+    } finally {
+    setLoading(false); // Ensure loading is stopped regardless of success or failure
+  }
   };
 
   const handleGoBack = () => {
@@ -168,7 +172,7 @@ const ConfirmAppointment = () => {
                 </div>
 
                 <div className="confirm-appointment-actions-btn">
-                  <button type='submit'>Done</button>
+                  <button type='submit' disabled={loading}>{loading ? "Confirming..." : "Done"}</button>
                 </div>
               </div>
             </form>

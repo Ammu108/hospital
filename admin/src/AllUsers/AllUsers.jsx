@@ -40,8 +40,8 @@ const AllUsers = () => {
             getAllUsers()
         }
         setLoading(false)
-      }, [aToken])
-
+      }, [aToken]);
+      
     return (
         <>
             <div className='admin-all-users-container'>

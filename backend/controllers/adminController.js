@@ -3,6 +3,7 @@ import doctorModel from "../models/doctorModel.js";
 import appointmentModel from "../models/appointmentModel.js";
 import { v2 as cloudinary } from 'cloudinary';
 import userModel from "../models/userModel.js";
+import nodemailer from 'nodemailer';
 
 // admin login
 
@@ -48,7 +49,7 @@ const allAppointments = async (req, res) => {
     try {
         const allAppointments = await appointmentModel.find({})
         res.json({ success: true, allAppointments })
-        
+
     } catch (error) {
         console.log(error)
         res.json({ success: false, message: "Error" })
@@ -95,6 +96,15 @@ const confirmAppointment = async (req, res) => {
         const { doctorId, docName, docPhone, department, description, consultingFee } = req.body;
         const imageFile = req.file
 
+        // Find the existing appointment details
+        const appointment = await appointmentModel.findById(req.params.id);
+        if (!appointment) {
+            return res.status(404).json({ error: "Appointment not found" });
+        }
+
+        // Extract necessary details for email
+        const { name, email, date, time, address } = appointment; // Fetch patient details
+
         // upload image to cloudinary
         const imageUpload = await cloudinary.uploader.upload(imageFile.path, { resource_type: "image" });
         const imageUrl = imageUpload.secure_url
@@ -115,6 +125,45 @@ const confirmAppointment = async (req, res) => {
             },
             { new: true }
         );
+
+        let transporter = nodemailer.createTransport({
+            service: "gmail",
+            secure: true,
+            port: 465, // Use Gmail or another provider
+            auth: {
+                user: "atomhospital@gmail.com", // Replace with your email
+                pass: "fzzcefdgujqirtrt" // Use App Password if using Gmail
+            }
+        });
+
+        // Email options
+        const mailOptions = {
+            from: "atomhospital@gmail.com",
+            to: email, // Send to user's email
+            subject: "Appointment Completed",
+            text: `Dear ${name},
+            We are pleased to confirm your appointment at Atom Hospital with Dr.${docName}.
+            🗓 Date: ${date}
+            ⏰ Time: ${time}
+            📍 Address: ${address}
+            Please arrive at least 15 minutes before your scheduled time and carry any necessary documents or reports.
+            Further details are on the site, Kindly Go and check it.
+                  
+            For any assistance, feel free to contact us.
+            We look forward to seeing you.
+            Thank you!
+            Atom Hospital Team.`,
+        };
+
+        // Send email
+        transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+                console.error("Email Error:", err);
+            } else {
+                console.log("Email sent:", info.response);
+            }
+        });
+
         res.json({ success: true, updatedAppointment });
     } catch (error) {
         console.log(error)
@@ -128,9 +177,53 @@ const completedAppointment = async (req, res) => {
     try {
         const { appointmentId } = req.body;
 
+        // const appointment = await appointmentModel.findById(req.params.id);
+        // if (!appointment) {
+        //     return res.status(404).json({ error: "Appointment not found" });
+        // }
+
+        // const { name, email, date, time, address, docName, department } = appointment; 
+
         const appointmentData = await appointmentModel.findById(appointmentId);
 
         await appointmentModel.findByIdAndUpdate(appointmentId, { status: "Completed" });
+
+        let transporter = nodemailer.createTransport({
+            service: "gmail",
+            secure: true,
+            port: 465, // Use Gmail or another provider
+            auth: {
+                user: "atomhospital@gmail.com", // Replace with your email
+                pass: "fzzcefdgujqirtrt" // Use App Password if using Gmail
+            }
+        });
+
+        // Email options
+        const mailOptions = {
+            from: "atomhospital@gmail.com",
+            to: `${appointmentData.email}`, // Send to user's email
+            subject: "Appointment Completed",
+            text: `Dear ${appointmentData.name},
+            We hope you had a smooth experience at Atom Hospital. Your appointment on:
+            🗓 Date: ${appointmentData.date}
+            ⏰ Time: ${appointmentData.time}
+            📍 Address: ${appointmentData.address}
+            with Dr. ${appointmentData.assignedDoctor.docName} has been successfully completed.
+            Thank you for choosing Atom Hospital for your healthcare needs.
+            If you have any feedback or require further assistance, please do not hesitate to reach out.
+            Wishing you good health!
+            Best Regards,
+            Atom Hospital Team.`,
+        };
+
+        // Send email
+        transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+                console.error("Email Error:", err);
+            } else {
+                console.log("Email sent:", info.response);
+            }
+        });
 
         return res.json({ success: true, message: "Appointment successfully Completed" });
 
@@ -183,8 +276,8 @@ const adminDashboard = async (req, res) => {
             completedAppointments
         }
 
-        res.json({success:true, dashData})
-        
+        res.json({ success: true, dashData })
+
     } catch (error) {
         res.status(500).json({ success: false, message: "Internal Server Error" })
     }

@@ -9,10 +9,11 @@
 
 .inside-admin-dashboard-container{
     width: 97%;
-    height: 470px;
+    height: 81vh;
     background-color: white;
     overflow-y: auto;
     padding: 20px 30px;
+    border-radius: 5px;
 }
 
 .admin-dashboard-container::-webkit-scrollbar {

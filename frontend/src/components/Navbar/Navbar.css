@@ -237,7 +237,11 @@ a {
   }
 
   .user-detail-div{
-    width: 90%;
+    width: 200px;
+  }
+
+  .user-email{
+    color: rgb(95, 95, 95);
   }
 
   .user-detail-div p{

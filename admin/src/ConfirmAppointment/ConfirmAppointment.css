@@ -35,7 +35,7 @@
 
 .inside-admin-confirm-appointment-container {
     width: 100%;
-    height: 450px;
+    height: 79vh;
     background-color: white;
     padding: 20px;
     overflow-y: auto;
@@ -123,6 +123,7 @@
     border-radius: 40px;
     border: none;
     transition: transform 0.3s ease;
+    color: black;
 }
 
 .confirm-appointment-actions-btn button:active{

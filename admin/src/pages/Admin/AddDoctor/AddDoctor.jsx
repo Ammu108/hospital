@@ -148,7 +148,7 @@ const AddDoctor = () => {
                   <textarea className="form-control" onChange={(e) => setAboutDoctor(e.target.value)} value={aboutDoctor} name='aboutDoctor' id="aboutDoctor" rows="3" placeholder="write about doctor..."></textarea>
                 </div>
                 <div className="col-12 btn">
-                  <button type='submit' className='add-btn'>Add Doctor</button>
+                  <button type='submit' className='add-btn' disabled={loading}>{loading ? "Adding Doctor..." : "Add Doctor"}</button>
                 </div>
               </form>
             )}

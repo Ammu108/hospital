@@ -15,7 +15,7 @@ const bookingDetails = async (req, res) => {
         const newAppointment = new appointmentModel({
             userId, name, dob, gender, number, email, date, time, address, description, status: "Pending", bookedAt: new Date(), 
         });
-
+        
         await newAppointment.save();
 
         let transporter = nodemailer.createTransport({
@@ -120,6 +120,40 @@ const updateAppointment = async (req, res) => {
         }
         const updatedAppointment = await appointmentModel.findByIdAndUpdate(id, req.body, {new:true});
         res.status(200).json(updatedAppointment);
+
+        let transporter = nodemailer.createTransport({
+            service: "gmail",
+            secure: true,
+            port: 465, // Use Gmail or another provider
+            auth: {
+                user: "atomhospital@gmail.com", // Replace with your email
+                pass: "fzzcefdgujqirtrt" // Use App Password if using Gmail
+            }
+        });
+
+        // Email options
+        const mailOptions = {
+            from: "atomhospital@gmail.com",
+            to: `${updatedAppointment.email}`, // Send to user's email
+            subject: "Appointment Updated",
+            text: `Dear ${updatedAppointment.name},
+            Your appointment at Atom Hospital has been successfully updated.
+            You can check your updated appointment on the site.
+            If you need to make any further changes or have any questions, feel free to reach out.
+            Thank you for choosing Atom Hospital!
+            Best Regards,
+            Atom Hospital Team.`,
+        };
+
+        // Send email
+        transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+                console.error("Email Error:", err);
+            } else {
+                console.log("Email sent:", info.response);
+            }
+        });
+
     } catch (error) {
         res.status(500).json({error: error})
     }

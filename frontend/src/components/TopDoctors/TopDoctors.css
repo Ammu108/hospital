@@ -1,3 +1,7 @@
+.top-doctors-parent-container{
+    width: 100%;
+}
+
 .doctors-parent-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
