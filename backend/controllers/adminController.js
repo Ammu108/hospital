@@ -140,7 +140,7 @@ const confirmAppointment = async (req, res) => {
         const mailOptions = {
             from: "atomhospital@gmail.com",
             to: email, // Send to user's email
-            subject: "Appointment Completed",
+            subject: "Appointment Confirmed",
             text: `Dear ${name},
             We are pleased to confirm your appointment at Atom Hospital with Dr.${docName}.
             🗓 Date: ${date}
@@ -176,13 +176,6 @@ const confirmAppointment = async (req, res) => {
 const completedAppointment = async (req, res) => {
     try {
         const { appointmentId } = req.body;
-
-        // const appointment = await appointmentModel.findById(req.params.id);
-        // if (!appointment) {
-        //     return res.status(404).json({ error: "Appointment not found" });
-        // }
-
-        // const { name, email, date, time, address, docName, department } = appointment; 
 
         const appointmentData = await appointmentModel.findById(appointmentId);
 

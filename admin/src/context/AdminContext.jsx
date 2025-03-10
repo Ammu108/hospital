@@ -14,7 +14,7 @@ const AdminContextProvider = (props) => {
     const [dashData, setDashData] = useState(false)
     const [allUsers, setAllUsers] = useState([])
 
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    const backendUrl = "https://hospital-backend-12qu.onrender.com" || import.meta.env.VITE_BACKEND_URL;
     // "https://hospital-backend-12qu.onrender.com" ||
     
     const getAllDoctors = async () => {

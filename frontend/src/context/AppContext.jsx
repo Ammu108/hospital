@@ -9,7 +9,7 @@ const AppContextProvider = (props) => {
 
     // const url = "http://localhost:4000";
     // "https://hospital-backend-12qu.onrender.com" ||
-    const url = import.meta.env.VITE_BACKEND_URL
+    const url = "https://hospital-backend-12qu.onrender.com" || import.meta.env.VITE_BACKEND_URL
     const [token, setToken] = useState(localStorage.getItem("token") || "");
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
     const [doctorsDetails, setDoctorsDetails] = useState([]);
